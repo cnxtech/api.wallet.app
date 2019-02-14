@@ -8,16 +8,22 @@ import {MatButtonModule, MatCheckboxModule, MatAutocompleteModule} from '@angula
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { CoinListWidgetComponent } from './components/coin-list-widget/coin-list-widget.component';
+import { CoinListComponent } from './components/coin-list/coin-list.component';
 import { SearchPipe } from './pipes/search/search.pipe';
 import { TwinsCoinListWidgetComponent } from './widgets/twins-coin-list-widget/twins-coin-list-widget.component';
+import { CoinPriceMarqueeComponent } from './components/coin-price-marquee/coin-price-marquee.component';
+import { HomeComponent } from './components/home/home.component';
+import { CoinPriceMarqueeWidgetComponent } from './widgets/coin-price-marquee-widget/coin-price-marquee-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoinListWidgetComponent,
+    CoinListComponent,
     SearchPipe,
-    TwinsCoinListWidgetComponent
+    TwinsCoinListWidgetComponent,
+    CoinPriceMarqueeComponent,
+    HomeComponent,
+    CoinPriceMarqueeWidgetComponent
   ],
   imports: [
     BrowserModule,

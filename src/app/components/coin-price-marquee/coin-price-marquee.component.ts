@@ -6,11 +6,11 @@ import { environment } from './../../../environments/environment';
 declare const $: any;
 
 @Component({
-    selector: 'app-coin-list-widget',
-    templateUrl: './coin-list-widget.component.html',
-    styleUrls: ['./coin-list-widget.component.less'],
+    selector: 'app-coin-price-marquee',
+    templateUrl: './coin-price-marquee.component.html',
+    styleUrls: ['./coin-price-marquee.component.less']
 })
-export class CoinListWidgetComponent implements OnInit {
+export class CoinPriceMarqueeComponent implements OnInit {
 
     public _currencyCodeOptions: string[];
     public _currencyCodeSearch: string;
@@ -165,17 +165,6 @@ export class CoinListWidgetComponent implements OnInit {
         // setTimeout(() => {
         $('.collapse').removeClass('show');
         // });
-    }
-    getData() {
-        this._http.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=&locale=").subscribe(
-            data => {
-                // this._data = data;
-                // this._currencyCodeOptions = this._data.map(item => item.symbol.toUpperCase());
-                // this._coinIdOptions = this._data.map(item => JSON.parse('{"key": "' + item.id + '", "value": "' + item.name + ' (' + item.id + ')' + '"}'));
-                // console.log("data", this._data);
-                // console.log("_coinIdOptions", this._coinIdOptions);
-            }
-        );
     }
 
     getCoinList() {

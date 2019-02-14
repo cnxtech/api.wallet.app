@@ -4,11 +4,11 @@
 
 import { Routes, RouterModule } from '@angular/router';
 
-import { CoinListWidgetComponent } from './components/coin-list-widget/coin-list-widget.component';
+import {HomeComponent} from "./components/home/home.component";
 
 const appRoutes: Routes = [
-    { path: '', component: CoinListWidgetComponent },
-    // { path: 'coin-list-widget', component: CoinListWidgetComponent },
+    { path: '', component: HomeComponent },
+    // { path: 'coin-list-widget', component: CoinListComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

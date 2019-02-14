@@ -1,0 +1,82 @@
+<div class="container">
+  <h4 class="header-title text-center" id="coin-list-widget">Coin Price Marquee Widget</h4>
+  <div class="row" data-controller="widget">
+    <div class="col-12 col-md-6 order-2 order-md-1">
+      <form>
+        <!--<div class="form-group">-->
+        <!--<label for="CoinId1">Coin ID</label>-->
+        <!--<input type="email" class="form-control" id="CoinId1" aria-describedby="emailHelp" placeholder="Search Coin">-->
+        <!--<small id="emailHelp" class="form-text text-muted">Coins in the list are displayed in this order. To delete an item, click on tag and hit "Delete".</small>-->
+        <!--</div>-->
+        <div class="form-group">
+          <div class="select-collapse-wrapper">
+            <label>Coin ID</label>
+            <div class="form-control fake-select fake-select-multiple" [attr.data-toggle]="!(_coinIdOptions | search: _coinIdSearch | search: _coinIdSelected).length ? '' : 'collapse'"  href="#CoinIdList1" (click)="inputFocus('CoinId')" aria-expanded="false">
+              <div class="fake-select-box" *ngFor="let coin of _coinIdSelected">{{coin.value}} <i class="fa fa-close" (click)="onRemoveCoinId(coin)"></i></div>
+            </div>
+            <div class="collapse collapse-force-open" id="CoinIdList1">
+              <input type="text" class="form-control search" name="coinIdSearch" id="CoinId" placeholder="Select Coins" [(ngModel)]="_coinIdSearch">
+              <div class="auto-complete-list">
+                <div class="auto-complete-option collapse-force-open" *ngFor="let option of _coinIdOptions | search: _coinIdSearch | search: _coinIdSelected" (click)="onSelectCoinId(option);inputFocus('CoinId')">{{option.value}}</div>
+              </div>
+              <!--<mat-autocomplete #coinIdAuto="matAutocomplete" class="force-block" (optionSelected)="onSelectCoinId($event.option.value);checkOption($event)">-->
+              <!--<mat-option class="force-block" *ngFor="let option of _coinIdOptions | search: _coinIdSearch | search: _coinIdSelected" [value]="option">-->
+              <!--{{option.value}}-->
+              <!--</mat-option>-->
+              <!--</mat-autocomplete>-->
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="select-collapse-wrapper">
+            <label>Currency Code</label>
+            <div class="form-control fake-select" data-toggle="collapse" href="#CurrencyCodeList1" (click)="inputFocus('CurrencyCode')" aria-expanded="false">
+              {{_currencyCodeSelected}}
+            </div>
+            <div class="collapse" id="CurrencyCodeList1">
+              <input type="text" class="form-control search no-collapsable" name="currencyCodeSearch" id="CurrencyCode" placeholder="Select Currency Code" [(ngModel)]="_currencyCodeSearch">
+              <div class="auto-complete-list">
+                <div class="auto-complete-option" *ngFor="let option of _currencyCodeOptions | search: _currencyCodeSearch" (click)="onSelectCurrencyCode(option); closeCollapse()">{{option}}</div>
+              </div>
+              <!--<mat-autocomplete #currencyCodeAuto="matAutocomplete" (optionSelected)="onSelectCurrencyCode($event.option.value); closeCollapse()">-->
+              <!--<mat-option *ngFor="let option of _currencyCodeOptions| search: _currencyCodeSearch" [value]="option">-->
+              <!--{{option}}-->
+              <!--</mat-option>-->
+              <!--</mat-autocomplete>-->
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Width">Width</label>
+          <input type="number" class="form-control" id="Width" name="width" [(ngModel)]="_width" placeholder="Width">
+          <small class="form-text text-muted">Enter widget width, e.g. 400. Width of 0 or omitted makes the widget take the full width of its container (responsive). Minimum width is 300, regardless of input.</small>
+        </div>
+        <div class="form-group">
+          <div class="select-collapse-wrapper">
+            <label>Language</label>
+            <div class="form-control fake-select" data-toggle="collapse" href="#languageList1" (click)="inputFocus('Language')" aria-expanded="false">
+              {{_languageSelected.value}}
+            </div>
+            <div class="collapse" id="languageList1">
+              <input type="text" class="form-control search no-collapsable" name="languageList" id="Language" placeholder="Select Language" [(ngModel)]="_languageSearch">
+              <div class="auto-complete-list">
+                <div class="auto-complete-option" *ngFor="let option of _languageOptions | search: _languageSearch" (click)="onSelectLanguage(option); closeCollapse()">{{option.value}}</div>
+              </div>
+              <!--<mat-autocomplete #languageAuto="matAutocomplete" (optionSelected)="onSelectLanguage($event.option.value); closeCollapse()">-->
+              <!--<mat-option *ngFor="let option of _languageOptions| search: _languageSearch" [value]="option">-->
+              <!--{{option.value}}-->
+              <!--</mat-option>-->
+              <!--</mat-autocomplete>-->
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 col-md-6 order-1 order-md-2 mb-3" data-controller="widget-loader" data-widget-loader-widget-name="coingecko-coin-list-widget">
+      <coin-price-marquee-widget coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected}}" locale="{{_languageSelected.key}}" width="{{_width}}" height="300" width="0" ></coin-price-marquee-widget>
+      <!--<textarea class="form-control text-sm mt-2" rows="7" onclick="this.focus();this.select()" readonly="readonly">&lt;script src="{{_origin}}/assets/widgets/coin-price-marquee-widget.js" async&gt;&lt;/script&gt;-->
+<!--&lt;coin-price-marquee-widget  coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected.toLowerCase()}}" locale="{{_languageSelected.key}}" width="{{_width}}"/&gt;</textarea>-->
+      <!--<div class="mt-1 p-1">Copy and paste this into where you want the widget to be. You can load as many widgets of this type as you like, but only load the script ONCE.</div>-->
+    </div>
+  </div>
+</div>
