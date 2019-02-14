@@ -16,7 +16,7 @@ export class CoinPriceMarqueeWidgetComponent implements OnInit {
     @Input() width: number;
     public _elementRef: ElementRef;
     private _http: HttpClient;
-    private _apiUrl: string;
+    // private _apiUrl: string;
     public _data: any[];
     public _powerd_by: any[];
     public _showCoins: any[] = [];
@@ -65,7 +65,7 @@ export class CoinPriceMarqueeWidgetComponent implements OnInit {
 
     updateApiUrl() {
         this.currency =  this.currency.toLowerCase();
-        this._apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=' + this.currency + '&ids=' + this.coinIds + '&locale=' + this.locale;
+        // this._apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=' + this.currency + '&ids=' + this.coinIds + '&locale=' + this.locale;
     }
     ngOnInit() {
         if(this.width > 0 && this.width < 300) {
