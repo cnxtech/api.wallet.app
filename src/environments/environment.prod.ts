@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiOrigin: 'http://104.248.28.171:3000'
 };
