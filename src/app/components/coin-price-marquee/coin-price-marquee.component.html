@@ -74,9 +74,9 @@
     </div>
     <div class="col-12 col-md-6 order-1 order-md-2 mb-3" data-controller="widget-loader" data-widget-loader-widget-name="coingecko-coin-list-widget">
       <coin-price-marquee-widget coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected}}" locale="{{_languageSelected.key}}" width="{{_width}}" height="300" width="0" ></coin-price-marquee-widget>
-      <!--<textarea class="form-control text-sm mt-2" rows="7" onclick="this.focus();this.select()" readonly="readonly">&lt;script src="{{_origin}}/assets/widgets/coin-price-marquee-widget.js" async&gt;&lt;/script&gt;-->
-<!--&lt;coin-price-marquee-widget  coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected.toLowerCase()}}" locale="{{_languageSelected.key}}" width="{{_width}}"/&gt;</textarea>-->
-      <!--<div class="mt-1 p-1">Copy and paste this into where you want the widget to be. You can load as many widgets of this type as you like, but only load the script ONCE.</div>-->
+      <textarea class="form-control text-sm mt-2" rows="7" onclick="this.focus();this.select()" readonly="readonly">&lt;script src="{{_origin}}/assets/widgets/coin-price-marquee-widget/widget.js" async&gt;&lt;/script&gt;
+&lt;coin-price-marquee-widget  coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected.toLowerCase()}}" locale="{{_languageSelected.key}}" width="{{_width}}"/&gt;</textarea>
+      <div class="mt-1 p-1">Copy and paste this into where you want the widget to be. You can load as many widgets of this type as you like, but only load the script ONCE.</div>
     </div>
   </div>
 </div>
