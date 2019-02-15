@@ -7,9 +7,9 @@
     "start-server": "node app.js",
     "build": "ng build",
     "bundle": "ng build --aot  --vendor-chunk=false --output-hashing=none --deploy-url /dist/ && node app.js",
-    "build-prod": "ng build --prod --deploy-url /dist/",
-    "build-prod2": "ng build --aot --prod  --vendor-chunk=false --output-hashing=none --deploy-url /dist/",
-    "build-prod-start": "ng build --aot --prod  --vendor-chunk=false --output-hashing=none --deploy-url /dist/ && node app.js",
+    "build-prod": "ng build --delete-output-path=false --aot --prod  --vendor-chunk=false --output-hashing=none --deploy-url /dist/",
+    "build-prod2": "ng build --delete-output-path=false --aot --prod  --vendor-chunk=false --output-hashing=none --deploy-url /dist/",
+    "build-prod-start": "ng build --delete-output-path=false--aot --prod  --vendor-chunk=false --output-hashing=none --deploy-url /dist/ && node app.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
