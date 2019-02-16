@@ -11,11 +11,11 @@
         <div class="form-group">
           <div class="select-collapse-wrapper">
             <label>Coin ID</label>
-            <div class="form-control fake-select fake-select-multiple" [attr.data-toggle]="!(_coinIdOptions | search: _coinIdSearch | search: _coinIdSelected).length ? '' : 'collapse'"  href="#CoinIdList1" (click)="inputFocus('CoinId')" aria-expanded="false">
+            <div class="form-control fake-select fake-select-multiple" [attr.data-toggle]="!(_coinIdOptions | search: _coinIdSearch | search: _coinIdSelected).length ? '' : 'collapse'"  href="#CoinIdList1" (click)="inputFocus('CoinId1')" aria-expanded="false">
               <div class="fake-select-box" *ngFor="let coin of _coinIdSelected">{{coin.value}} <i class="fa fa-close" (click)="onRemoveCoinId(coin)"></i></div>
             </div>
             <div class="collapse collapse-force-open" id="CoinIdList1">
-              <input type="text" class="form-control search" name="coinIdSearch" id="CoinId" placeholder="Select Coins" [(ngModel)]="_coinIdSearch">
+              <input type="text" class="form-control search" name="coinIdSearch" id="CoinId1" placeholder="Select Coins" [(ngModel)]="_coinIdSearch">
               <div class="auto-complete-list">
                 <div class="auto-complete-option collapse-force-open" *ngFor="let option of _coinIdOptions | search: _coinIdSearch | search: _coinIdSelected" (click)="onSelectCoinId(option);inputFocus('CoinId')">{{option.value}}</div>
               </div>
@@ -30,11 +30,11 @@
         <div class="form-group">
           <div class="select-collapse-wrapper">
             <label>Currency Code</label>
-            <div class="form-control fake-select" data-toggle="collapse" href="#CurrencyCodeList1" (click)="inputFocus('CurrencyCode')" aria-expanded="false">
+            <div class="form-control fake-select" data-toggle="collapse" href="#CurrencyCodeList1" (click)="inputFocus('CurrencyCode1')" aria-expanded="false">
               {{_currencyCodeSelected}}
             </div>
             <div class="collapse" id="CurrencyCodeList1">
-              <input type="text" class="form-control search no-collapsable" name="currencyCodeSearch" id="CurrencyCode" placeholder="Select Currency Code" [(ngModel)]="_currencyCodeSearch">
+              <input type="text" class="form-control search no-collapsable" name="currencyCodeSearch" id="CurrencyCode1" placeholder="Select Currency Code" [(ngModel)]="_currencyCodeSearch">
               <div class="auto-complete-list">
                 <div class="auto-complete-option" *ngFor="let option of _currencyCodeOptions | search: _currencyCodeSearch" (click)="onSelectCurrencyCode(option); closeCollapse()">{{option}}</div>
               </div>
@@ -54,11 +54,11 @@
         <div class="form-group">
           <div class="select-collapse-wrapper">
             <label>Language</label>
-            <div class="form-control fake-select" data-toggle="collapse" href="#languageList1" (click)="inputFocus('Language')" aria-expanded="false">
+            <div class="form-control fake-select" data-toggle="collapse" href="#languageList1" (click)="inputFocus('Language1')" aria-expanded="false">
               {{_languageSelected.value}}
             </div>
             <div class="collapse" id="languageList1">
-              <input type="text" class="form-control search no-collapsable" name="languageList" id="Language" placeholder="Select Language" [(ngModel)]="_languageSearch">
+              <input type="text" class="form-control search no-collapsable" name="languageList" id="Language1" placeholder="Select Language" [(ngModel)]="_languageSearch">
               <div class="auto-complete-list">
                 <div class="auto-complete-option" *ngFor="let option of _languageOptions | search: _languageSearch" (click)="onSelectLanguage(option); closeCollapse()">{{option.value}}</div>
               </div>
