@@ -114,7 +114,7 @@ export class CoinPriceMarqueeComponent implements OnInit {
             // {key: "eos", value: "EOS (eos)"},
             // {key: "ripple", value: "XRP (ripple)"},
             // {key: "litecoin", value: "Litecoin (litecoin)"},
-            {key: "win-win", value: "win.win (win-win)"}
+            {key: "win-win", value: "win.win (TWINS)"}
 
         ];
         this._width = 0;
@@ -172,7 +172,7 @@ export class CoinPriceMarqueeComponent implements OnInit {
             (data: any) => {
                 console.log("data", data);
                 // this._currencyCodeOptions = data.map(item => item.symbol.toUpperCase());
-                this._coinIdOptions = data.map(item => JSON.parse('{"key": "' + item.id + '", "value": "' + item.name + ' (' + item.id + ')' + '"}'));
+                this._coinIdOptions = data.map(item => JSON.parse('{"key": "' + item.id + '", "value": "' + item.name + ' (' + item.symbol.toUpperCase() + ')' + '"}'));
             }
         );
         // https://api.coingecko.com/api/v3/coins/list
