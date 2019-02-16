@@ -47,9 +47,8 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="Width">Width</label>
-          <input type="number" class="form-control" id="Width" name="width" [(ngModel)]="_width" placeholder="Width">
-          <small class="form-text text-muted">Enter widget width, e.g. 400. Width of 0 or omitted makes the widget take the full width of its container (responsive). Minimum width is 300, regardless of input.</small>
+          <label for="Background">Background Color</label>
+          <input type="text" class="form-control" id="Background" name="background" [(ngModel)]="_background" placeholder="#ffffff or rgba(255,255,255,.6) or yellow">
         </div>
         <div class="form-group">
           <div class="select-collapse-wrapper">
@@ -73,9 +72,9 @@
       </form>
     </div>
     <div class="col-12 col-md-6 order-1 order-md-2 mb-3" data-controller="widget-loader" data-widget-loader-widget-name="coingecko-coin-list-widget">
-      <coin-price-marquee-widget coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected}}" locale="{{_languageSelected.key}}" width="{{_width}}" height="300" width="0" ></coin-price-marquee-widget>
+      <coin-price-marquee-widget coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected}}" locale="{{_languageSelected.key}}" background="{{_background}}" height="300" width="0" ></coin-price-marquee-widget>
       <textarea class="form-control text-sm mt-2" rows="7" onclick="this.focus();this.select()" readonly="readonly">&lt;script src="{{_origin}}/assets/widgets/coin-price-marquee-widget/widget.js"&gt;&lt;/script&gt;
-&lt;coin-price-marquee-widget  coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected.toLowerCase()}}" locale="{{_languageSelected.key}}" width="{{_width}}"/&gt;</textarea>
+&lt;coin-price-marquee-widget  coin-ids="{{getCoinIdesForWidget()}}" currency="{{_currencyCodeSelected.toLowerCase()}}" locale="{{_languageSelected.key}}" background="{{_background}}"/&gt;</textarea>
       <div class="mt-1 p-1">Copy and paste this into where you want the widget to be. You can load as many widgets of this type as you like, but only load the script ONCE.</div>
     </div>
   </div>

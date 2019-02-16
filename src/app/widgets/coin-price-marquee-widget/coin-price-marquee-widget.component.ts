@@ -14,6 +14,7 @@ export class CoinPriceMarqueeWidgetComponent implements OnInit {
     @Input() currency: string;
     @Input() locale: string;
     @Input() width: number;
+    @Input() background: number;
     public _elementRef: ElementRef;
     private _http: HttpClient;
     // private _apiUrl: string;
@@ -34,8 +35,8 @@ export class CoinPriceMarqueeWidgetComponent implements OnInit {
         if (!this.locale) {
             this.locale = this._elementRef.nativeElement.getAttribute('locale');
         }
-        if (!this.width) {
-            this.width = this._elementRef.nativeElement.getAttribute('width');
+        if (!this.background) {
+            this.background = this._elementRef.nativeElement.getAttribute('background');
         }
         this._http = http;
         this._powerd_by = [

@@ -28,7 +28,7 @@ export class CoinPriceMarqueeComponent implements OnInit {
     private _http: HttpClient;
     public _origin: string;
 
-    public _width: number;
+    public _background: string;
     constructor(http: HttpClient) {
         this._http = http;
         this._origin = window.location.origin;
@@ -117,7 +117,6 @@ export class CoinPriceMarqueeComponent implements OnInit {
             {key: "win-win", value: "win.win (TWINS)"}
 
         ];
-        this._width = 0;
     }
 
     ngOnInit() {
