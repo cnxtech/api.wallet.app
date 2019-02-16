@@ -41,10 +41,15 @@ select:focus, input:focus {
     .fake-select {
         cursor:pointer;
         .fake-select-box {
-            border: solid 1px green;
-            padding: .2% .5%;
+            border: solid 1px #a3e7a3;
+            padding: .1% .5%;
             display: inline-block;
-            margin: .5%;
+            margin: 0 .8% .8% 0;
+            //color:#e93f33;
+            span {
+                vertical-align: text-bottom;
+                color:#a3e7a3;
+            }
         }
     }
     input.search {
@@ -54,7 +59,7 @@ select:focus, input:focus {
         padding:0;
         height:auto;
         min-height:calc(1.5em + .75rem + 2px);
-        padding-right: 5%;
+        padding: .8% 5% 0 .8%;
     }
     .collapse, .collapsing {
         position:absolute;

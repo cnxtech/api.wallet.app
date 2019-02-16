@@ -12,15 +12,22 @@
     "build-prod-start": "ng build --delete-output-path=false--aot --prod  --vendor-chunk=false --output-hashing=none --deploy-url /dist/ && node app.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+
+    "bundle-coin-list-widget": "ng build --delete-output-path=false --aot --prod --project coin-list-widget --vendor-chunk=false --output-hashing=none && node concat.js coin-list-widget",
+    "______bundle-coin-list-widget": "ng build --delete-output-path=false --aot --prod --project coin-list-widget --vendor-chunk=false --output-hashing=none && node concat.js src/assets/widgets/coin-list-widget/",
+    "bundle-coin-price-marquee-widget": "ng build --delete-output-path=false --aot --prod --project coin-price-marquee-widget --vendor-chunk=false --output-hashing=none && node concat.js coin-price-marquee-widget",
+    "______bundle-coin-price-marquee-widget": "ng build --delete-output-path=false --aot --prod --project coin-price-marquee-widget --vendor-chunk=false --output-hashing=none && node concat.js src/assets/widgets/coin-price-marquee-widget/"
   },
   "private": true,
   "dependencies": {
+    "@angular-builders/custom-webpack": "^7.3.1",
     "@angular/animations": "^6.1.10",
     "@angular/cdk": "^7.3.2",
     "@angular/common": "^6.0.3",
     "@angular/compiler": "^6.0.3",
     "@angular/core": "^6.0.3",
+    "@angular/elements": "^7.2.5",
     "@angular/forms": "^6.0.3",
     "@angular/http": "^6.0.3",
     "@angular/material": "^7.3.2",
@@ -29,6 +36,7 @@
     "@angular/router": "^6.0.3",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.0",
+    "concat-files": "^0.1.1",
     "core-js": "^2.5.4",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
