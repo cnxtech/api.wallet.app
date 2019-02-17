@@ -78,8 +78,10 @@ export class TwinsCoinListWidgetComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         console.log(changes)
-        if (this._init) {
-            this.getData();
+        if (changes.coinIds || changes.currency) {
+            if (this._init) {
+                this.getData();
+            }
         }
     }
 

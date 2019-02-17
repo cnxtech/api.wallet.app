@@ -24,6 +24,7 @@ export class CoinPriceMarqueeWidgetComponent implements OnInit {
     public _currencyOptions: string[];
     public _vs_currency: string;
     private _init: boolean = false;
+    private _updateTimeout: any;
     constructor(http: HttpClient, elementRef: ElementRef) {
         this._elementRef = elementRef;
         if (!this.coinIds) {
@@ -79,8 +80,10 @@ export class CoinPriceMarqueeWidgetComponent implements OnInit {
 
     ngOnChanges(changes: SimpleChanges): void {
         console.log(changes)
-        if (this._init) {
-            this.getData();
+        if (changes.coinIds || changes.currency) {
+            if (this._init) {
+                this.getData();
+            }
         }
     }
 

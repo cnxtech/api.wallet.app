@@ -13,7 +13,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-
     "bundle-coin-list-widget": "ng build --delete-output-path=false --aot --prod --project coin-list-widget --vendor-chunk=false --output-hashing=none && node concat.js coin-list-widget",
     "______bundle-coin-list-widget": "ng build --delete-output-path=false --aot --prod --project coin-list-widget --vendor-chunk=false --output-hashing=none && node concat.js src/assets/widgets/coin-list-widget/",
     "bundle-coin-price-marquee-widget": "ng build --delete-output-path=false --aot --prod --project coin-price-marquee-widget --vendor-chunk=false --output-hashing=none && node concat.js coin-price-marquee-widget",
