@@ -13,14 +13,14 @@
           <span class="widget-bold">{{coin.symbol.toUpperCase()}}</span>
         </div>
       </div>
-      <div class="widget-flex widget-justify-end widget-items-center widget-red-color-dark">
+      <div class="widget-flex widget-justify-end widget-items-center" [ngClass]="{'widget-red-color-dark': coin.price_change_percentage_24h < 0, 'widget-primary-color-dark': coin.price_change_percentage_24h >= 0}">
         <div>
           <span class="widget-bold widget-px-1">
               ${{fixCurrentPrice(coin.current_price)}}
             </span>
           <span>({{coin.price_change_percentage_24h.toFixed(2)}}%)</span>
         </div>
-        <div class="widget-ml-2 widget-sm-hide widget-arrow-down"></div>
+        <div class="widget-ml-2 widget-sm-hide" [ngClass]="{'widget-arrow-down': coin.price_change_percentage_24h < 0, 'widget-arrow-up': coin.price_change_percentage_24h >= 0}"></div>
       </div>
     </a>
     <div class="widget-flex widget-justify-between widget-items-center widget-footer widget-px-2 widget-py-1">
