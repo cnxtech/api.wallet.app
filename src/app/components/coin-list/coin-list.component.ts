@@ -109,13 +109,13 @@ export class CoinListComponent implements OnInit {
         this._languageSelected = this._languageOptions[0];
         this._coinIdSearch = '';
         this._coinIdSelected = [
-            // {key: "bitcoin", value: "Bitcoin (bitcoin)"},
-            // {key: "ethereum", value: "Ethereum (ethereum)"},
-            // {key: "eos", value: "EOS (eos)"},
-            // {key: "ripple", value: "XRP (ripple)"},
-            // {key: "litecoin", value: "Litecoin (litecoin)"},
-            {key: "win-win", value: "win.win (TWINS)"}
-
+            {key: "bitcoin", value: "Bitcoin (BTC)"},
+            {key: "ethereum", value: "Ethereum (ETH)"},
+            {key: "ripple", value: "XRP (XRP)"},
+            {key: "eos", value: "EOS (EOS)"},
+            {key: "litecoin", value: "Litecoin (LTC)"},
+            {key: "bitcoin-cash", value: "Bitcoin Cash (BCH)"},
+            {key: "nem", value: "NEM (XEM)"},
         ];
         this._width = 0;
     }
@@ -138,6 +138,7 @@ export class CoinListComponent implements OnInit {
     }
     onSelectCoinId(value) {
         this._coinIdSelected.push(value);
+        console.log(this._coinIdSelected)
         // console.log("this._coinIdSelected",this._coinIdSelected)
         setTimeout(() => {
             this._coinIdSearch = '';

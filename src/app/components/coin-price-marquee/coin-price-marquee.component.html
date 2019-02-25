@@ -50,25 +50,6 @@
           <label for="Background">Background Color</label>
           <input type="text" class="form-control" id="Background" name="background" [(ngModel)]="_background" placeholder="#ffffff or rgba(255,255,255,.6) or yellow">
         </div>
-        <div class="form-group">
-          <div class="select-collapse-wrapper">
-            <label>Language</label>
-            <div class="form-control fake-select" data-toggle="collapse" href="#languageList1" (click)="inputFocus('Language1')" aria-expanded="false">
-              {{_languageSelected.value}}
-            </div>
-            <div class="collapse" id="languageList1">
-              <input type="text" class="form-control search no-collapsable" name="languageList" id="Language1" placeholder="Select Language" [(ngModel)]="_languageSearch">
-              <div class="auto-complete-list">
-                <div class="auto-complete-option" *ngFor="let option of _languageOptions | search: _languageSearch" (click)="onSelectLanguage(option); closeCollapse()">{{option.value}}</div>
-              </div>
-              <!--<mat-autocomplete #languageAuto="matAutocomplete" (optionSelected)="onSelectLanguage($event.option.value); closeCollapse()">-->
-              <!--<mat-option *ngFor="let option of _languageOptions| search: _languageSearch" [value]="option">-->
-              <!--{{option.value}}-->
-              <!--</mat-option>-->
-              <!--</mat-autocomplete>-->
-            </div>
-          </div>
-        </div>
       </form>
     </div>
     <div class="col-12 col-md-6 order-1 order-md-2 mb-3" data-controller="widget-loader" data-widget-loader-widget-name="coingecko-coin-list-widget">
