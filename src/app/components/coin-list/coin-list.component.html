@@ -51,25 +51,6 @@
           <input type="number" class="form-control" id="Width" name="width" [(ngModel)]="_width" placeholder="Width">
           <small class="form-text text-muted">Enter widget width, e.g. 400. Width of 0 or omitted makes the widget take the full width of its container (responsive). Minimum width is 300, regardless of input.</small>
         </div>
-        <div class="form-group">
-          <div class="select-collapse-wrapper">
-            <label>Language</label>
-            <div class="form-control fake-select" data-toggle="collapse" href="#languageList" (click)="inputFocus('Language')" aria-expanded="false">
-              {{_languageSelected.value}}
-            </div>
-            <div class="collapse" id="languageList">
-              <input type="text" class="form-control search no-collapsable" name="languageList" id="Language" placeholder="Select Language" [(ngModel)]="_languageSearch">
-              <div class="auto-complete-list">
-                <div class="auto-complete-option" *ngFor="let option of _languageOptions | search: _languageSearch" (click)="onSelectLanguage(option); closeCollapse()">{{option.value}}</div>
-              </div>
-              <!--<mat-autocomplete #languageAuto="matAutocomplete" (optionSelected)="onSelectLanguage($event.option.value); closeCollapse()">-->
-              <!--<mat-option *ngFor="let option of _languageOptions| search: _languageSearch" [value]="option">-->
-              <!--{{option.value}}-->
-              <!--</mat-option>-->
-              <!--</mat-autocomplete>-->
-            </div>
-          </div>
-        </div>
       </form>
     </div>
     <div class="col-12 col-md-6 order-1 order-md-2 mb-3" data-controller="widget-loader" data-widget-loader-widget-name="coingecko-coin-list-widget">
