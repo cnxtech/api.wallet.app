@@ -139,7 +139,8 @@ router.get("/get-market-chart/:currency/:days", function(req, res) {
                 market_caps: new_market_caps,
                 total_volumes: new_total_volumes,
             }
-            res.send(JSON.stringify(obj, undefined, ' '))
+            // res.send(JSON.stringify(obj, undefined, ' '))
+            res.send(obj);
             // res.set({'Content-Type': 'application/json; charset=utf-8'}).send(200, JSON.stringify(obj, undefined, ' '));
         }
     })
