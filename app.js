@@ -36,7 +36,7 @@ router.get("/get-coin-list", function(req, res) {
     request.get("https://api.coingecko.com/api/v3/coins/list", function (error, httpResponse, response) {
         if (error) {
             console.error(error);
-            res.render(__dirname + indexHtml);
+            res.send(error);
         } else if (httpResponse.statusCode === 200) {
             // response = JSON.parse(response);
             res.send(response)
@@ -50,10 +50,97 @@ router.post("/get-market-data", function(req, res) {
     request.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=' + currency + '&ids=' + coinIds + '&locale=' + locale, function (error, httpResponse, response) {
         if (error) {
             console.error(error);
-            res.render(__dirname + indexHtml);
+            res.send(error);
         } else if (httpResponse.statusCode === 200) {
             // response = JSON.parse(response);
             res.send(response)
+        }
+    })
+})
+router.post("/ajax-get-market-chart", function(req, res) {
+    var currency = req.body.currency;
+    var days = req.body.days;
+    request.get('https://api.coingecko.com/api/v3/coins/win-win/market_chart?vs_currency=' + currency + '&days=' + days, function (error, httpResponse, response) {
+        if (error) {
+            console.error(error);
+            res.send(error);
+        } else if (httpResponse.statusCode === 200) {
+            response = JSON.parse(response);
+            var new_prices = [];
+            var new_market_caps = [];
+            var new_total_volumes = [];
+            var tempObj = {};
+            for(var i = response.prices.length - 1; i >= 0; i--){
+                tempObj = {};
+                tempObj['timestamp'] = response.prices[i][0];
+                tempObj['date'] = new Date(response.prices[i][0]).toLocaleString();
+                tempObj[currency] = response.prices[i][1];
+                new_prices.push(tempObj)
+            }
+            for(var i = response.market_caps.length - 1; i >= 0; i--){
+                tempObj = {};
+                tempObj['timestamp'] = response.market_caps[i][0];
+                tempObj['date'] = new Date(response.market_caps[i][0]).toLocaleString();
+                tempObj[currency] = response.market_caps[i][1];
+                new_market_caps.push(tempObj)
+            }
+            for(var i = response.total_volumes.length - 1; i >= 0; i--){
+                tempObj = {};
+                tempObj['timestamp'] = response.total_volumes[i][0];
+                tempObj['date'] = new Date(response.total_volumes[i][0]).toLocaleString();
+                tempObj[currency] = response.total_volumes[i][1];
+                new_total_volumes.push(tempObj)
+            }
+            var obj = {
+                prices: new_prices,
+                market_caps: new_market_caps,
+                total_volumes: new_total_volumes,
+            }
+            res.send(obj)
+        }
+    })
+})
+router.get("/get-market-chart/:currency/:days", function(req, res) {
+    var currency = req.params.currency;
+    var days = req.params.days;
+    request.get('https://api.coingecko.com/api/v3/coins/win-win/market_chart?vs_currency=' + currency + '&days=' + days, function (error, httpResponse, response) {
+        if (error) {
+            console.error(error);
+            res.send(error);
+        } else if (httpResponse.statusCode === 200) {
+            response = JSON.parse(response);
+            var new_prices = [];
+            var new_market_caps = [];
+            var new_total_volumes = [];
+            var tempObj = {};
+            for(var i = response.prices.length - 1; i >= 0; i--){
+                tempObj = {};
+                tempObj['timestamp'] = response.prices[i][0];
+                tempObj['date'] = new Date(response.prices[i][0]).toLocaleString();
+                tempObj[currency] = response.prices[i][1];
+                new_prices.push(tempObj)
+            }
+            for(var i = response.market_caps.length - 1; i >= 0; i--){
+                tempObj = {};
+                tempObj['timestamp'] = response.market_caps[i][0];
+                tempObj['date'] = new Date(response.market_caps[i][0]).toLocaleString();
+                tempObj[currency] = response.market_caps[i][1];
+                new_market_caps.push(tempObj)
+            }
+            for(var i = response.total_volumes.length - 1; i >= 0; i--){
+                tempObj = {};
+                tempObj['timestamp'] = response.total_volumes[i][0];
+                tempObj['date'] = new Date(response.total_volumes[i][0]).toLocaleString();
+                tempObj[currency] = response.total_volumes[i][1];
+                new_total_volumes.push(tempObj)
+            }
+            var obj = {
+                prices: new_prices,
+                market_caps: new_market_caps,
+                total_volumes: new_total_volumes,
+            }
+            res.send(JSON.stringify(obj, undefined, ' '))
+            // res.set({'Content-Type': 'application/json; charset=utf-8'}).send(200, JSON.stringify(obj, undefined, ' '));
         }
     })
 })
